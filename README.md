@@ -14,11 +14,5 @@ ULID generation examples:
 
 ```
 
-ULID parsing examples:
-
-```swift
-
-```
-
 ## Prior Art
 - [alizain/ulid](https://github.com/alizain/ulid)
