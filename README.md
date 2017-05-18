@@ -12,5 +12,4 @@ ULID generation examples:
 
 ```
 
-## Prior Art
 - [alizain/ulid](https://github.com/alizain/ulid)
