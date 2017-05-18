@@ -12,4 +12,4 @@ ULID generation examples:
 
 ```
 
-- [alizain/ulid](https://github.com/alizain/ulid)
+Not the best solution in the world so feel free to submit pull request to improve
