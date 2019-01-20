@@ -67,13 +67,13 @@ struct ULID {
     }
     
     static func generateULID(timeStamp: Double? = nil) -> String {
-        let now = timeStamp ?? (Date().timeIntervalSince1970)
+        let now = timeStamp ?? (Date().timeIntervalSince1970*1000)
         return encodeTime(time: now, length: 10) + encodeRandom(length: 16)
     }
     
     
     init(timeStamp: Double? = nil) {
-        let now = timeStamp ?? (Date().timeIntervalSince1970)
+        let now = timeStamp ?? (Date().timeIntervalSince1970*1000)
         self.t = ULID.encodeTime(time: now, length: 10)
         self.r = ULID.encodeRandom(length: 16)
     }
