@@ -8,15 +8,6 @@
 
 import Foundation
 
-public extension Double {
-    
-    /// Returns value between 0.0 and 1.0, inclusive.
-    public static var random: Double {
-        get {
-            return Double(arc4random()) / 0xFFFFFFFF
-        }
-    }
-}
 
 public extension String {
     
@@ -45,7 +36,7 @@ struct ULID {
         
         var str = ""
         for _ in (0..<length).reversed() {
-            let rand = floor(encodingLength * Double.random)
+            let rand = floor(encodingLength * Double.random(in: 0...1))
             str = encodedArray[Int(rand)] + str
         }
         
