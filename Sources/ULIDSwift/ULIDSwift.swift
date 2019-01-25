@@ -8,15 +8,6 @@
 
 import Foundation
 
-public extension Double {
-    
-    /// Returns value between 0.0 and 1.0, inclusive.
-    public static var random: Double {
-        get {
-            return Double(arc4random()) / 0xFFFFFFFF
-        }
-    }
-}
 
 public extension String {
     
@@ -45,7 +36,7 @@ struct ULID {
         
         var str = ""
         for _ in (0..<length).reversed() {
-            let rand = floor(encodingLength * Double.random)
+            let rand = floor(encodingLength * Double.random(in: 0...1))
             str = encodedArray[Int(rand)] + str
         }
         
@@ -67,13 +58,13 @@ struct ULID {
     }
     
     static func generateULID(timeStamp: Double? = nil) -> String {
-        let now = timeStamp ?? (Date().timeIntervalSince1970)
+        let now = timeStamp ?? (Date().timeIntervalSince1970*1000)
         return encodeTime(time: now, length: 10) + encodeRandom(length: 16)
     }
     
     
     init(timeStamp: Double? = nil) {
-        let now = timeStamp ?? (Date().timeIntervalSince1970)
+        let now = timeStamp ?? (Date().timeIntervalSince1970*1000)
         self.t = ULID.encodeTime(time: now, length: 10)
         self.r = ULID.encodeRandom(length: 16)
     }
